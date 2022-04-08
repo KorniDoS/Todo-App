@@ -1,0 +1,654 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+/*
+## Colors
+
+### Primary
+
+- Bright Blue: hsl(220, 98%, 61%)
+- Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+
+### Neutral
+
+### Light Theme
+
+- Very Light Gray: hsl(0, 0%, 98%)
+- Very Light Grayish Blue: hsl(236, 33%, 92%)
+- Light Grayish Blue: hsl(233, 11%, 84%)
+- Dark Grayish Blue: hsl(236, 9%, 61%)
+- Very Dark Grayish Blue: hsl(235, 19%, 35%)
+
+### Dark Theme
+
+- Very Dark Blue: hsl(235, 21%, 11%)
+- Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+- Light Grayish Blue: hsl(234, 39%, 85%)
+- Light Grayish Blue (hover): hsl(236, 33%, 92%)
+- Dark Grayish Blue: hsl(234, 11%, 52%)
+- Very Dark Grayish Blue: hsl(233, 14%, 35%)
+- Very Dark Grayish Blue: hsl(237, 14%, 26%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 18px
+
+### Font
+
+- Family: [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans)
+- Weights: 400, 700
+*/
+
+:root {
+    --primary-blue: hsl(220, 98%, 61%);
+    --primary-check-background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --light-theme-vlight-gray: hsl(0, 0, 98%);
+    --light-theme-vlight-grayish-blue: hsl(236, 33%, 92%);
+    --light-theme-light-grayish-blue: hsl(236, 9%, 61%);
+    --light-theme-vdark-grayish-blue: hsl(235, 19%, 35%);
+
+    --dark-theme-vdark-blue: hsl(235, 21%, 11%);
+    --dark-theme-vdark-desaturated-blue: hsl(235, 24%, 19%);
+    --dark-theme-light-grayish-blue: hsl(234, 39%, 85%);
+    --dark-theme-light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --dark-theme-dark-grayish-blue: hsl(234, 11%, 52%);
+    --dark-theme-vdark-grayish-blue: hsl(233, 14%, 35%);
+    --dark-theme-vdark-grayish-blue2: hsl(237, 14%, 26%);
+
+    --body-font-size: 1.8rem;
+    --font-family: 'Josefin Sans', sans-serif;
+    --font-weight-400: 400;
+    --font-weight-700: 700;
+
+    --container-size-sm: 300px;
+    --container-size-lg: 500px;
+    --visibility: hidden; /*used later with JS for the little rgb checkbox border on hover*/
+
+
+}
+
+/*////////////////General styling/////////////////*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    font-weight: var(--font-weight-400);
+    width: 100%;
+    min-height: 100vh;
+    max-height: 220vh;
+    display: block;
+    text-rendering: optimizeLegibility;
+}
+
+
+
+main+div>img {
+    width: 100%;
+}
+
+
+.container {
+    width: var(--container-size-sm);
+    height: fit-content;
+
+}
+
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-center-row {
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
+.d-flex-center-column {
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.d-flex-space-between {
+    justify-content: space-between;
+}
+/*////////////////General styling/////////////////*/
+
+
+
+
+/*////////////////Dark theme - default/////////////////*/
+main {
+    height: inherit;
+    background-color: var(--dark-theme-vdark-blue);
+}
+
+
+h5 {
+    font-size: 1.3rem;
+    color: var(--dark-theme-vdark-grayish-blue);
+    text-align: center;
+    margin-block-start: 5rem;
+}
+
+/*
+.todo-header {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    background-image: url('./images/bg-mobile-dark.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+*/
+
+/*Todo list container*/
+.todo-container {
+    width: var(--container-size-sm);
+    min-height: 100vh;
+    max-height: 220vh;
+    position: relative;
+    z-index: 2;
+    margin-inline: auto;
+    inset: -16rem auto auto auto;
+}
+
+/*Box shadow on mobile button div*/
+div.create-todo-main:nth-child(3) {
+    box-shadow: 0px 10px 70px black;
+}
+
+
+
+/*Title and theme switch icon container*/
+.todo-title-icon-container {
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+    margin-block-end: 2rem;
+}
+
+
+/*Icon container title styling*/
+.todo-title-icon-container>h1 {
+    letter-spacing: 10px;
+    font-size: 3rem;
+    color: white;
+}
+
+
+/*Theme switch icon styling*/
+.todo-title-icon-container>img:nth-child(2) {
+    height: 2rem;
+    margin-bottom: .6rem;
+}
+
+/*Theme switch icon styling; pointer on hover*/
+.todo-title-icon-container>img:nth-child(2):hover {
+    cursor: pointer;
+}
+
+
+/*Todo tasks insert div*/
+.create-todo-main {
+    width: 100%;
+    height: 5rem;
+    background-color: var(--dark-theme-vdark-desaturated-blue);
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    border-radius: 8px;
+    margin-block-end: 2rem;
+}
+
+/*Todo tasks insert checkbox*/
+.create-todo-main>input[type="checkbox"] {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: var(--dark-theme-vdark-desaturated-blue);
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin-inline-start: 1.5em;
+    border-color: var(--dark-theme-vdark-grayish-blue2);
+}
+
+
+/*Todo tasks insert checkbox:checked*/
+.create-todo-main>input[type="checkbox"]:checked {
+    background: url('./images/icon-check.svg') center center, var(--primary-check-background);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+/*Todo tasks insert input styling*/
+.create-todo-main>input[type="text"] {
+    background-color: var(--dark-theme-vdark-desaturated-blue);
+    color: var(--dark-theme-light-grayish-blue);
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 1.5rem;
+    position: relative;
+    top: 2px;
+}
+
+
+/*List item container*/
+.create-todo {
+    width: 100%;
+    height: 5rem;
+    background-color: var(--dark-theme-vdark-desaturated-blue);
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    border-radius: 8px;
+    margin-block-end: 2rem;
+}
+
+
+/*List item checkbox*/
+.create-todo>input[type="checkbox"] {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: var(--dark-theme-vdark-desaturated-blue);
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin-inline-start: 1.5em;
+    border-color: var(--dark-theme-vdark-grayish-blue2);
+}
+
+/*List item checkbox:checked*/
+.create-todo>input[type="checkbox"]:checked {
+    background: url('./images/icon-check.svg') center center, var(--primary-check-background);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+/*List item input text*/
+.create-todo>input[type="text"] {
+    background-color: var(--dark-theme-vdark-desaturated-blue);
+    color: var(--dark-theme-light-grayish-blue);
+    border: none;
+    outline: none;
+    font-family: inherit;
+    position: relative;
+    top: 1px;
+}
+
+
+/*Unordered list styling*/
+.todo-list {
+    list-style: none;
+    text-align: left;
+}
+
+.todo-list>li {
+    margin: 0;
+    border-radius: 0;
+}
+
+/*Add border on bottom side of the list items*/
+li.create-todo {
+    border-bottom: 1px solid var(--dark-theme-vdark-grayish-blue2);
+}
+
+/*First list item with round borders top*/
+li.create-todo:nth-child(1) {
+
+    border-bottom: 1px solid var(--dark-theme-vdark-grayish-blue2);
+    border-radius: 8px 8px 0 0;
+}
+
+
+/*Lower part of wrapper with items left and clear completed*/
+div.create-todo:nth-child(2) {
+    justify-content: space-around;
+    border-radius: 0 0 8px 8px;
+    color: var(--dark-theme-dark-grayish-blue);
+    font-size: 1.4rem;
+}
+
+
+/*Show buttons*/
+div.create-todo:nth-child(3) {
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--dark-theme-dark-grayish-blue);
+    font-size: 1.4rem;
+}
+
+/*List item cross image*/
+li.create-todo>img {
+    margin-inline-start: 2.8rem;
+}
+
+/*List item cross image; pointer on hover*/
+li.create-todo>img:hover {
+    cursor: pointer;
+}
+
+/*Border bottom on list items*/
+li.create-todo-main {
+    border-bottom: 1px solid var(--dark-theme-vdark-grayish-blue2);
+}
+
+li.create-todo-main:nth-child(1) {
+    border-bottom: 1px solid var(--dark-theme-vdark-grayish-blue2);
+    border-radius: 8px 8px 0 0;
+}
+
+
+
+/*Desktop menu buttons, clear completed and no of items left*/
+div.create-todo-main:nth-child(2) {
+    justify-content: space-around;
+    border-radius: 0 0 8px 8px;
+    color: var(--dark-theme-dark-grayish-blue);
+    font-size: 1.4rem;
+}
+
+/*Mobile menu styling*/
+div.create-todo-main:nth-child(3) {
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--dark-theme-dark-grayish-blue);
+    font-size: 1.4rem;
+}
+
+
+/*Cross image margin left*/
+li.create-todo-main>img {
+    margin-inline-start: 2.8rem;
+}
+
+li.create-todo-main>img:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link{
+ color: var(--dark-theme-dark-grayish-blue);
+ 
+}
+
+a:visited {
+    color: unset;
+}
+
+
+/*Links hover color*/
+a:hover {
+    color: var(--dark-theme-light-grayish-blue-hover);
+}
+
+
+.create-todo-main>a:hover {
+    color: var(--dark-theme-light-grayish-blue-hover);
+}
+
+
+/*Gap between buttons: desktop menu*/
+div.create-todo-main:nth-child(2) {
+    gap: 5rem;
+}
+
+/*Hidden by default - mobile first approach*/
+#desktop-menu {
+    display: none;
+}
+
+/*Unordered list container box shadow*/
+#main-li-container {
+    box-shadow: 12px 20px 25px -5px rgba(0, 0, 0, 0.4), -12px 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+/*Main background img height*/
+#main-background {
+    height: 200px;
+}
+
+
+/*Attribution styling*/
+.attribution {
+    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--dark-theme-light-grayish-blue);
+    padding-block-end: 3rem;
+}
+
+.attribution>a,
+.attribution>a:visited {
+    color: hsl(280, 87%, 65%);
+}
+/*////////////////Dark theme - default/////////////////*/
+
+
+
+
+/*////////////////Light theme/////////////////*/
+main.light-theme {
+    height: inherit;
+    background-color: var(--light-theme-vlight-grayish-blue);
+}
+
+
+main.light-theme .create-todo-main {
+    background-color: #FAFAFA;
+     transition: .3s ease-in-out background-color;
+}
+
+main.light-theme .create-todo-main>input[type="checkbox"] {
+
+    background-color: var(--light-theme-vlight-grayish-blue);
+    border-color: var(--light-theme-light-grayish-blue);
+    transition: .3s ease-in-out background-color;
+}
+
+main.light-theme .create-todo-main>input[type="text"] {
+    background-color: #fafafa;
+    color: var(--light-theme-vdark-grayish-blue);
+    position: relative;
+    top: 2px;
+    transition: .3s ease-in-out background-color;
+}
+
+main.light-theme .create-todo {
+    background-color: #FAFAFA;
+    transition: .3s ease-in-out background-color;
+}
+
+main.light-theme .create-todo>input[type="checkbox"] {
+
+    background-color: var(--light-theme-vlight-grayish-blue);
+    border-color: var(--light-theme-light-grayish-blue);
+}
+
+
+main.light-theme .create-todo>input[type="text"] {
+    background-color: #FAFAFA;
+    color: var(--light-theme-vdark-grayish-blue);
+    position: relative;
+    top: 1px;
+    transition: .3s ease-in-out background-color;
+}
+
+
+main.light-theme .create-todo-main>input[type="checkbox"] {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: var(--light-theme-vlight-grayish-blue);
+    border-radius: 50%;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin-inline-start: 1.5em;
+    transition: .3s ease-in-out background-color;
+
+}
+
+
+main.light-theme #main-li-container {
+    box-shadow: none;
+}
+
+
+main.light-theme div.create-todo-main:nth-child(3) {
+    box-shadow: none;
+}
+
+main.light-theme li.create-todo {
+    border-bottom: 1px solid var(--light-theme-vlight-grayish-blue);
+}
+
+
+main.light-theme a {
+    color: var(--light-theme-light-grayish-blue);
+}
+
+main.light-theme a:hover {
+    color: var(--light-theme-vdark-grayish-blue);
+}
+
+main.light-theme h5 {
+    color: var(--light-theme-light-grayish-blue);
+}
+
+
+main.light-theme .attribution {
+    color: var(--light-theme-vdark-grayish-blue);
+}
+
+
+main.light-theme .attribution>a,
+main.light-theme .attribution>a:visited {
+    color: hsl(192, 100%, 37%);
+}
+
+/*////////////////Light theme/////////////////*/
+
+
+
+
+/*////////////////Tablet-desktop design/////////////////*/
+@media only screen and (min-width: 700px) {
+
+    #main-background {
+        height: 300px;
+    }
+
+    li:hover {
+        cursor: pointer;
+    }
+
+    li>img {
+        visibility: hidden;
+    }
+
+    div.create-todo-main:nth-child(2) {
+        gap: 2rem;
+    }
+
+
+    /*Hide the mobile menu buttons*/
+    #mobile-menu {
+        display: none;
+    }
+
+
+    /*Show the desktop menu buttons*/
+    #desktop-menu {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    picture img {
+        height: 300px;
+    }
+
+    .todo-container {
+        inset: -23rem auto auto auto;
+        width: var(--container-size-lg);
+    }
+
+    input[type="text"] {
+        width: 80%;
+    }
+
+    li.create-todo>img {
+        margin-inline-start: -1.6rem;
+    }
+
+    .create-todo {
+        padding-block: 3rem;
+    }
+
+    .create-todo>input[type="text"] {
+        font-size: 1.5rem;
+    }
+
+    .create-todo-main>input[type="text"] {
+        font-size: 1.5rem;
+    }
+
+    .create-todo>input[type="text"]:hover {
+        cursor: pointer;
+    }
+
+
+    div.create-todo-main:nth-child(1) {
+        padding-block: 3rem;
+    }
+
+
+    .gradient-border {
+        position: relative;
+    }
+
+
+    /*Gradient border on checkbox hover(hover effect added through JS)*/
+    .gradient-border::before {
+        visibility: var(--visibility);
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        border-radius: 50%;
+        width: 1.5em;
+        height: 1.5em;
+        padding: 1px;
+        background: linear-gradient(45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        -webkit-mask:
+        linear-gradient(#fff 10px 10px) content-box,
+        linear-gradient(#fff 10px 10px);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+}
+/*////////////////Tablet-desktop design/////////////////*/

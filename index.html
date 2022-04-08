@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="KorniDoS">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Frontend Mentor | Todo app</title>
+</head>
+
+<body>
+
+  <!--Main tag start-->
+  <main>
+
+    <!--Header with the main background-->
+    <header>
+      <div>
+        <img id="main-background" src="./images/bg-mobile-dark.jpg" alt="" width="100%" height="200px">
+      </div>
+    </header>
+
+    <!--Todo list container start-->
+    <div class="todo-container d-flex-center-column">
+
+      <!--Todo title and theme switch button-->
+      <div class="todo-title-icon-container d-flex">
+        <h1>TODO</h1>
+        <img class="themeBtn" src="./images/icon-sun.svg" alt="Theme switcher button showing sun/moon">
+      </div>
+
+
+      <!--Todo wrapper start-->
+      <div class="todo-wrapper">
+
+        <!--Todo taks insert-->
+        <div class="create-todo-main d-flex">
+          <input type="checkbox" id="create-todo-check" class="gradient-border">
+          <input type="text" id="create-todo-text" placeholder="Create a new todo..." value="">
+        </div>
+
+
+        <!--Main list item container-->
+        <div id="main-li-container">
+
+          <!--The todo list-->
+          <ul id="sortablelist" class="todo-list d-flex-column">
+            <!--Here comes the content-->
+          </ul>
+
+          <!--Lower part of wrapper & buttons-->
+          <div class="create-todo-main d-flex">
+
+            <!--No of items left-->
+            <span><label id="no-of-items"></label> items left</span>
+
+            <!--Desktop menu buttons-->
+            <span id="desktop-menu">
+              <a href=# class="all">All</a>
+              <a href="#" class="active_button">Active</a>
+              <a href="#" class="completed_button">Completed</a>
+            </span>
+
+            <!--Clear completed button-->
+            <a href="#" id="clear-completed">Clear completed</a>
+
+            <!--End of lower part wrapper & buttons-->
+          </div>
+
+        </div>
+
+        <!--Mobile menu buttons - separated block-->
+        <div id="mobile-menu" class="create-todo-main d-flex">
+          <a href=# class="all">All</a>
+          <a href="#" class="active_button">Active</a>
+          <a href="#" class="completed_button">Completed</a>
+        </div>
+
+        <!--Todo wrapper end-->
+      </div>
+
+      <!--Drag and drop reminder-->
+      <h5>Drag and drop to reorder list</h5>
+
+
+      <!--Todo container end-->
+    </div>
+
+
+    <!--Attribution-->
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/KorniDoS/">KorniDoS</a>.
+    </div>
+
+    <!--End of main-->
+  </main>
+
+  <!--Scripts-->
+  <script src="./script.js"></script>
+  <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+</body>
+
+</html>
