@@ -341,7 +341,7 @@ div.create-todo:nth-child(3) {
 
 /*List item cross image*/
 li.create-todo>img {
-    margin-inline-start: 2.8rem;
+    margin-inline-start: 2.2rem;
 }
 
 /*List item cross image; pointer on hover*/
