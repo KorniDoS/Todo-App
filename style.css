@@ -287,6 +287,7 @@ div.create-todo-main:nth-child(3) {
 
 /*List item input text*/
 .create-todo>input[type="text"] {
+    width: 55%;
     background-color: var(--dark-theme-vdark-desaturated-blue);
     color: var(--dark-theme-light-grayish-blue);
     border: none;
@@ -490,6 +491,7 @@ main.light-theme .create-todo>input[type="checkbox"] {
 
 
 main.light-theme .create-todo>input[type="text"] {
+    width: 55%;
     background-color: #FAFAFA;
     color: var(--light-theme-vdark-grayish-blue);
     position: relative;
@@ -597,12 +599,10 @@ main.light-theme .attribution>a:visited {
         width: var(--container-size-lg);
     }
 
-    input[type="text"] {
-        width: 80%;
-    }
+
 
     li.create-todo>img {
-        margin-inline-start: -1.6rem;
+        margin-inline-start: 1.5rem;
     }
 
     .create-todo {
@@ -610,8 +610,14 @@ main.light-theme .attribution>a:visited {
     }
 
     .create-todo>input[type="text"] {
+        width: calc(80% - 3em + 1.5rem);
         font-size: 1.5rem;
     }
+    
+     main.light-theme .create-todo>input[type="text"] {
+        width: calc(80% - 3em + 1.5rem);
+    }
+
 
     .create-todo-main>input[type="text"] {
         font-size: 1.5rem;
